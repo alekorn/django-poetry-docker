@@ -1,0 +1,34 @@
+FROM python:3.11-alpine3.20 as builder
+
+RUN apk update && apk add --no-cache gcc musl-dev libffi-dev build-base
+
+RUN pip install poetry==1.4.2
+ENV POETRY_NO_INTERACTION=1 \
+    POETRY_VIRTUALENVS_IN_PROJECT=1 \
+    POETRY_VIRTUALENVS_CREATE=1 \
+    POETRY_CACHE_DIR=/tmp/poetry_cache
+
+WORKDIR /tmp
+COPY pyproject.toml poetry.lock ./
+
+RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
+
+
+FROM python:3.11-alpine3.20
+
+RUN apk update && apk add --no-cache \
+    shadow && \
+    adduser -D -h /home/user user && \
+    mkdir -p /app && \
+    chown user:user /app
+WORKDIR /app
+
+COPY --from=builder /tmp/requirements.txt requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+
+COPY --chown=user:user entrypoint.sh ./
+RUN chmod +x ./entrypoint.sh
+
+USER user
+
+ENTRYPOINT ["./entrypoint.sh"]

@@ -1,0 +1,33 @@
+{% load static %}
+
+{% block content %}
+
+<h2>Hello world!</h1>
+
+<hr>
+<h3>Info:</h2>
+<p>debug: {{ debug }}</p>
+
+<hr>
+<h3>Database:</h2>
+<p>db: {{ db_backend }}</p>
+<p>db name: {{ db_name }}</p>
+
+<hr>
+<h3>Staticfiles:</h3>
+    <p>file: <a href="{% static "upload/icon.png" %}">{% static "upload/icon.png" %}</a></p>
+
+<hr>
+<h3>Mediafiles:</h3>
+<div>
+  <form action="{% url "upload" %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="image_file">
+    <input type="submit" value="submit" />
+  </form>
+  {% if image_url %}
+    <p>file: <a href="{{ image_url }}">{{ image_url }}</a></p>
+  {% endif %}
+</div>
+
+{% endblock %}

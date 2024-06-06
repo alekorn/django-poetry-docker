@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app/:/app/
+    ports:
+      - 8000:8000
+    env_file:
+      - ./app/.env.dev
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=hello_world
+      - POSTGRES_PASSWORD=hello_world
+      - POSTGRES_DB=hello_world_dev
+
+volumes:
+  postgres_data_dev:
