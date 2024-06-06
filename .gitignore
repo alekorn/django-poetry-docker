@@ -1,9 +1,7 @@
 .DS_Store
 config.py
 files
-/static
-/staticfiles
-app/staticfiles
+staticfiles
 cgi-bin
 passenger_wsgi.py
 data_dump.json
@@ -86,7 +84,6 @@ celerybeat-schedule.*
 # Environments 
 .env 
 .venv 
-app/.venv 
 env/ 
 venv/ 
 ENV/ 
