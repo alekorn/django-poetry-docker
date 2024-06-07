@@ -54,7 +54,7 @@ You can run a project without using docker
 	```
 	$ poetry install
 	```
-3. Apply migratons:
+3. Apply migrations:
 
 	```
 	$ make migrate
