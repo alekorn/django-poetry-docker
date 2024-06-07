@@ -20,6 +20,7 @@ RUN apk update && apk add --no-cache \
     shadow && \
     adduser -D -h /home/user user && \
     mkdir -p /app && \
+    mkdir -p /app/staticfiles && \
     chown user:user /app
 WORKDIR /app
 

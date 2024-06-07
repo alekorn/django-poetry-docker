@@ -7,10 +7,9 @@ services:
       dockerfile: Dockerfile.prod 
     command: gunicorn hello_world.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      # use volumes or mount
-      # - static_volume:/app/staticfiles
+      - static_volume:/app/staticfiles
+      # use volume or mount
       # - media_volume:/app/mediafiles
-      - ./app/staticfiles:/app/staticfiles
       - ./app/mediafiles:/app/mediafiles
     expose:
       - 8000
@@ -29,10 +28,9 @@ services:
   nginx:
     build: ./nginx
     volumes:
-      # use volumes or mount
-      # - static_volume:/app/staticfiles
+      - static_volume:/app/staticfiles
+      # use volume or mount
       # - media_volume:/app/mediafiles
-      - ./app/staticfiles:/app/staticfiles
       - ./app/mediafiles:/app/mediafiles
     ports:
       - 1234:80
@@ -41,6 +39,6 @@ services:
     restart: always
 volumes:
   postgres_data:
-  # use volumes or mount
-  # static_volume:
+  static_volume:
+  # use volume or mount
   # media_volume:
