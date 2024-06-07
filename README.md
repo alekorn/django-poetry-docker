@@ -52,7 +52,7 @@ You can run a project without using docker
 2. Install dependencies:
 
 	```
-	$ make install
+	$ poetry install
 	```
 3. Apply migratons:
 
