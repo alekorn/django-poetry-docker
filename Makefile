@@ -1,3 +1,5 @@
+.PHONY: dev prod
+
 dev:
 	docker-compose up -d --build --remove-orphans
 prod:

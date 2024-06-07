@@ -57,3 +57,6 @@ You can run a project without using docker
 	```
 	$ make runserver
 	```
+6.  Go to  [http://localhost:8001](http://localhost:8001/). Docker is not used. Working with code directly.
+
+When using Poetry, command line variables are used to avoid conflicts with environment variables defined in .env files.
