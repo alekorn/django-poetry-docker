@@ -49,7 +49,7 @@ You can run a project without using docker
 	```
 	$ cd app	
 	```
-2. Install dependencies:
+2. Install dependencies (you may need to configure `poetry env use python3.11`):
 
 	```
 	$ poetry install
@@ -66,4 +66,4 @@ You can run a project without using docker
 	```
 6.  Go to  [http://localhost:8001](http://localhost:8001/). Docker is not used. Working with code directly.
 
-When using Poetry, command line variables are used to avoid conflicts with environment variables defined in .env files.
+When using Poetry, command line variables are used to avoid conflicts with environment variables defined in .env files, see _app/Makefile_.
