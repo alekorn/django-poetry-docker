@@ -14,7 +14,7 @@ services:
     expose:
       - 8000
     env_file:
-      - ./app/.env.prod
+      - ./.env.prod
     depends_on:
       - db
     restart: always
