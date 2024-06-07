@@ -6,8 +6,12 @@ A project template based on a compilation of development experience using poetry
 
 ### Dev
 django development server + postgres or sqllite db
-1. Rename file  _.env.dev-sample_  to  _.env.dev_.
-2. Change env variables in the _.env.dev__ and _docker-compose.yml_ files.
+1. Rename env files _.env.dev-sample_ to _.env.dev_:
+
+	```
+	$ mv .env.dev-sample .env.dev
+	```
+2. Change env variables in the _.env.dev_ and _docker-compose.yml_ files.
 3. Build docker images and run the containers:
    
 	```
@@ -21,10 +25,14 @@ django development server + postgres or sqllite db
 
 ### Prod
 nginx + gunicorn + postgres db
-1. Rename file  _.env.prod-sample_  to  _.env.prod_.
-2. Rename file _.env.prod.db-sample_ to _env.prod.db_.
-3. Change env variables.
-5. Build docker images and run the containers:
+1. Rename file _.env.prod-sample_ to _.env.prod_ and _.env.prod.db-sample_ to _env.prod.db_:
+
+	```
+	$ mv .env.prod-sample .env.prod
+	$ mv .env.prod.db-sample .env.prod.db
+	```
+2. Change env variables.
+3. Build docker images and run the containers:
 
 	```
 	$ make prod
@@ -33,7 +41,7 @@ nginx + gunicorn + postgres db
 	```
 	$ docker-compose -f docker-compose.prod.yml up -d --build
 	```
-6.  Go to  [http://localhost:1234](http://localhost:1234/). No mounted directories. After changing code you need to rebuild image.
+4.  Go to  [http://localhost:1234](http://localhost:1234/). No mounted directories. After changing code you need to rebuild image.
 
 ## Usage Poetry
 You can run a project without using docker
