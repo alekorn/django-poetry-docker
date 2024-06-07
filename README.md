@@ -9,6 +9,7 @@ django development server + postgres or sqllite db
 1. Rename file  __.env.dev-sample__  to  __.env.dev__.
 2. Change env variables in the __.env.dev__ and __docker-compose.yml__ files.
 3. Build docker images and run the containers:
+   
 	```
 	make dev
 	```
@@ -16,7 +17,7 @@ django development server + postgres or sqllite db
 	```
 	docker-compose up -d --build --remove-orphans
 	```
-4.  Go to  [http://localhost:8000](http://localhost:8000/). The __/app__ directory is mounted into the container. Your code changes apply automatically.
+5.  Go to  [http://localhost:8000](http://localhost:8000/). The __/app__ directory is mounted into the container. Your code changes apply automatically.
 
 ### Prod
 nginx + gunicorn + postgres db
