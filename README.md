@@ -11,11 +11,11 @@ django development server + postgres or sqllite db
 3. Build docker images and run the containers:
    
 	```
-	make dev
+	$ make dev
 	```
 	or manually:
 	```
-	docker-compose up -d --build --remove-orphans
+	$ docker-compose up -d --build --remove-orphans
 	```
 5.  Go to  [http://localhost:8000](http://localhost:8000/). The __/app__ directory is mounted into the container. Your code changes apply automatically.
 
@@ -25,30 +25,35 @@ nginx + gunicorn + postgres db
 2. Rename file __.env.prod.db-sample__ to __env.prod.db__.
 3. Change env variables.
 5. Build docker images and run the containers:
+
 	```
-	make prod
+	$ make prod
 	```
 	or manually:
 	```
-	docker-compose -f docker-compose.prod.yml up -d --build
+	$ docker-compose -f docker-compose.prod.yml up -d --build
 	```
 6.  Go to  [http://localhost:1234](http://localhost:1234/). No mounted directories. After changing code you need to rebuild image.
 
 ## Usage Poetry
 You can run a project without using docker
-1. Go to app.
+1. Go to app:
+
 	```
-	cd app	
+	$ cd app	
 	```
-2. Install dependencies.
+2. Install dependencies:
+
 	```
-	make install
+	$ make install
 	```
-3. Apply migrate.
+3. Apply migratons:
+
 	```
-	make migrate
+	$ make migrate
 	```
-4. Run django development server.
+4. Run django development server:
+
 	```
-	make runserver
+	$ make runserver
 	```
