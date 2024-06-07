@@ -21,15 +21,14 @@ django development server + postgres or sqllite db
 	```
 	$ docker-compose up -d --build --remove-orphans
 	```
-5.  Go to  [http://localhost:8000](http://localhost:8000/). The _/app_ directory is mounted into the container. Your code changes apply automatically.
+4.  Go to  [http://localhost:8000](http://localhost:8000/). The _/app_ directory is mounted into the container. Your code changes apply automatically.
 
 ### Prod
 nginx + gunicorn + postgres db
 1. Rename file _.env.prod-sample_ to _.env.prod_ and _.env.prod.db-sample_ to _env.prod.db_:
 
 	```
-	$ mv .env.prod-sample .env.prod
-	$ mv .env.prod.db-sample .env.prod.db
+	$ mv .env.prod-sample .env.prod && mv .env.prod.db-sample .env.prod.db
 	```
 2. Change env variables.
 3. Build docker images and run the containers:
