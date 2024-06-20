@@ -8,3 +8,5 @@ migrate:
 	$(ENV_VARS) poetry run python manage.py migrate
 migrations:
 	$(ENV_VARS) poetry run python manage.py makemigrations
+collectstatic:
+	$(ENV_VARS) poetry run python manage.py collectstatic
