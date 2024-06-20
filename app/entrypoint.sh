@@ -16,6 +16,6 @@ wait_for() {
 
 wait_for db 5432
 
-python manage.py migrate
+poetry run python manage.py migrate
 
 exec "$@"
