@@ -60,3 +60,15 @@ Use `$ make poetry [command]` to run any poetry commands in dev container (see M
 	```
 	$ make poetry remove cowsay
 	```
+ 	```
+ - Create migrations
+   
+	```
+	$ make migrations
+	```
+ 	```
+ - Apply migrations
+   
+	```
+	$ make migrate
+	```
