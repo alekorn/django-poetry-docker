@@ -43,27 +43,20 @@ nginx + gunicorn + postgres db
 4.  Go to  [http://localhost:1234](http://localhost:1234/). No mounted directories. After changing code you need to rebuild image.
 
 ## Usage Poetry
-You can run a project without using docker
-1. Go to app:
-
+Use `$ make poetry [command]` to run any poetry commands in dev container (see Makefile) 	
+### Examples:
+ - Add package
+   
+   	```
+	$ make poetry add cowsay
 	```
-	$ cd app	
+ - Check package in pip list
+   
+   	```
+	$ make poetry run pip3 list | grep cowsay
 	```
-2. Install dependencies (you may need to configure `poetry env use python3.11`):
-
+ - Remove package
+   
 	```
-	$ poetry install
+	$ make poetry remove cowsay
 	```
-3. Apply migrations:
-
-	```
-	$ make migrate
-	```
-4. Run django development server:
-
-	```
-	$ make runserver
-	```
-6.  Go to  [http://localhost:8001](http://localhost:8001/). Docker is not used. Working with code directly.
-
-When using Poetry, command line variables are used to avoid conflicts with environment variables defined in .env files, see _app/Makefile_.
