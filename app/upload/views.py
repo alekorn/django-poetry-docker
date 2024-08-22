@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 from django.db import connection
-from hello_world.settings import DEBUG
+from core.settings import DEBUG
 
 
 def image_upload(request):
