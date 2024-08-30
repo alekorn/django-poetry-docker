@@ -70,3 +70,8 @@ Use `$ make poetry [command]` to run any poetry commands in dev container (see M
 	```
 	$ make migrate
 	```
+  - Create django admin superuser
+   
+	```
+	$ make poetry run python manage.py createsuperuser
+	```
