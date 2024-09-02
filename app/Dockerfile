@@ -15,7 +15,8 @@ RUN apk add --no-cache \
 WORKDIR /app
 
 COPY pyproject.toml poetry.lock ./
-ENV POETRY_VIRTUALENVS_PATH=/usr/src/.venv \
+ENV PYTHONUNBUFFERED=1 \
+    POETRY_VIRTUALENVS_PATH=/usr/src/.venv \
     POETRY_VIRTUALENVS_IN_PROJECT=0 \
     POETRY_NO_INTERACTION=1 \
     POETRY_VIRTUALENVS_CREATE=1
